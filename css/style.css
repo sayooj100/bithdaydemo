@@ -394,9 +394,9 @@ p {
   }
 
   .envelope-container {
-    width: 65vw;
-    /* Smaller for phone */
-    height: 43vw;
+    width: 45vw;
+    /* Smaller */
+    height: 30vw;
     /* Aspect ratio ~1.5 */
     transform: none !important;
     margin: 0;
@@ -409,19 +409,19 @@ p {
     /* Center the flap */
     transform: translateX(-50%) !important;
     /* Offset by half its width */
-    border-left-width: 32.5vw !important;
-    /* Half of 65vw */
-    border-right-width: 32.5vw !important;
-    /* Half of 65vw */
-    border-top-width: 25vw !important;
+    border-left-width: 22.5vw !important;
+    /* Half of 45vw */
+    border-right-width: 22.5vw !important;
+    /* Half of 45vw */
+    border-top-width: 17vw !important;
     /* Proportional height */
   }
 
   .card-inner {
-    width: 90vw !important;
-    /* Fill mobile screen */
-    height: 50vh !important;
-    /* Shorter to show nav-dock */
+    width: 85vw !important;
+    /* Smaller */
+    height: 45vh !important;
+    /* Shorter */
     padding: 1rem !important;
     overflow-y: auto;
   }
