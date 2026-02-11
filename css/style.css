@@ -385,32 +385,55 @@ p {
 
   /* --- Letter Page --- */
   .letter-scene {
-    height: 100vh;
-    overflow: hidden;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    padding-top: 0;
+    /* Remove offset */
   }
 
   .envelope-container {
-    transform: scale(0.85);
-    /* User preferred this size */
-    transform-origin: center;
-    margin: 0 auto;
-    max-width: 100%;
+    width: 65vw;
+    /* Smaller for phone */
+    height: 43vw;
+    /* Aspect ratio ~1.5 */
+    transform: none !important;
+    margin: 0;
+    max-width: none;
   }
 
-  /* Reduce flap height on mobile */
+  /* Responsive Flap Logic - CENTERED */
   .envelope-flap {
-    border-top-width: 120px !important;
+    left: 50% !important;
+    /* Center the flap */
+    transform: translateX(-50%) !important;
+    /* Offset by half its width */
+    border-left-width: 32.5vw !important;
+    /* Half of 65vw */
+    border-right-width: 32.5vw !important;
+    /* Half of 65vw */
+    border-top-width: 25vw !important;
+    /* Proportional height */
   }
 
   .card-inner {
-    width: 85vw;
-    height: 70vh;
-    padding: 1.5rem;
+    width: 90vw !important;
+    /* Fill mobile screen */
+    height: 50vh !important;
+    /* Shorter to show nav-dock */
+    padding: 1rem !important;
     overflow-y: auto;
   }
 
   .card-inner h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .card-inner p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
   }
 
   /* --- Popper Page --- */

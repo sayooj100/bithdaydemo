@@ -186,30 +186,25 @@
                 const nextIndex = (currentIndex + 1) % frames.length;
                 const nextFrame = frames[nextIndex];
 
-                // Animate Out Current
+                // Setup next photo FIRST (visible but transparent)
+                gsap.set(nextFrame, { display: 'block', autoAlpha: 0, scale: 1, zIndex: 9 });
+
+                // Crossfade: Both animate at the same time
                 gsap.to(currentFrame, {
                     autoAlpha: 0,
-                    scale: 0.9,
-                    duration: 0.5,
+                    duration: 0.4,
                     onComplete: () => {
                         currentFrame.classList.remove('active');
                         gsap.set(currentFrame, { display: 'none', zIndex: 0 });
                     }
                 });
 
-                // Animate In Next - START IMMEDIATELY (Concurrent)
-                gsap.set(nextFrame, { display: 'block', zIndex: 10 });
-                gsap.fromTo(nextFrame,
-                    { autoAlpha: 0, scale: 1.1 },
-                    {
-                        autoAlpha: 1,
-                        scale: 1,
-                        duration: 0.5,
-                        onStart: () => {
-                            nextFrame.classList.add('active');
-                        }
-                    }
-                );
+                nextFrame.classList.add('active');
+                gsap.to(nextFrame, {
+                    autoAlpha: 1,
+                    zIndex: 10,
+                    duration: 0.4
+                });
 
                 currentIndex = nextIndex;
             });
